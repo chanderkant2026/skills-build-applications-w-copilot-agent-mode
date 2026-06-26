@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import { connectToDatabase } from '../db'
+import { connectToDatabase } from '../database'
 import Activity from '../models/activity.model'
 import LeaderboardEntry from '../models/leaderboard.model'
 import Team from '../models/team.model'

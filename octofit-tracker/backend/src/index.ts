@@ -1,11 +1,11 @@
 import express from 'express'
-import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import usersRouter from './routes/users'
 import teamsRouter from './routes/teams'
 import activitiesRouter from './routes/activities'
 import leaderboardRouter from './routes/leaderboard'
 import workoutsRouter from './routes/workouts'
+import { connectToDatabase } from './database'
 
 dotenv.config()
 
@@ -14,7 +14,7 @@ const port = process.env.PORT || 8000
 const baseApiPath = '/api'
 const codespaceName = process.env.CODESPACE_NAME
 const apiHost = codespaceName ? `https://${codespaceName}-8000.githubpreview.dev` : `http://localhost:${port}`
-const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/octofit'
+const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/octofit_db'
 
 app.use(express.json())
 app.use(`${baseApiPath}/users`, usersRouter)
